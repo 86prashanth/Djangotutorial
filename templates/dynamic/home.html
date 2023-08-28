@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic</title>
+</head>
+<body>
+    <!-- <p>this is dynamic template {{cname}}</p> -->
+    <p>this is dynamic template {{names}}</p>
+    {% for student in students  %}
+    {{student}} <br>
+    {{student.stu1}}<br>
+    {{student.stu2}}<br>
+    {{student.stu3}}<br>
+    {{student.stu1.name}}<br>
+    {{student.stu1.roll}}<br>
+    {{student.stu2.name}}<br>
+    {{student.stu2.roll}}<br>
+    {{student.stu3.name}}<br>
+    {{student.stu3.roll}}<br>
+     <!-- {{forloop.counter}} {{name}} <br> -->
+     <!-- {{forloop.revcounter}} {{name}} <br> -->
+     <!-- {{forloop.first}} {{name}}<br> -->
+     <!-- {{forloop.last}} {{name}}<br> -->
+     <!-- {{forloop.revcounter}} {{name}} <br> -->
+    {% endfor %}
+</body>
+</html>

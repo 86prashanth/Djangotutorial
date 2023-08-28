@@ -1,0 +1,31 @@
+{% extends 'main/main.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+      static
+    {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/static.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+</head>
+<body>
+    {% block content %}
+    <img src="{% static 'images/images.jpg' %}" alt="Images">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit laudantium eum perferendis ullam a cupiditate natus exercitationem amet praesentium necessitatibus modi facilis ipsum corporis recusandae, omnis nesciunt quia molestiae consequatur.</p>
+
+    <select onchange="handleOnChangeEvent(this.value)">
+		<option value="">Select a color</option>
+		<option value="blue">Blue</option>
+		<option value="red">Red</option>
+		<option value="green">Green</option>
+	</select>
+    <script src="{% static 'js/static.js' %}"></script>
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/poper.js' %}"></script>
+    {% include "include/include.html" %}
+    {% endblock content %}
+</body>
+</html>

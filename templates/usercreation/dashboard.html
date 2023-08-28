@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashabord</h2>
+    <h3>Welcome {{name}}</h3>
+    {% if perms.usercreationform.delete_blog %}
+      <input type="button" value="Delete"> <br><BR>
+    {% else %}
+    <h3>No delete Permission</h3>
+    {% endif %}
+    {% if perms.usercreationform.Add_blog %}
+      <input type="button" value="Add"> <br><BR>
+    {% else %}
+    <h3>No Add Permission</h3>
+    {% endif %}
+    {% if perms.usercreationform.view_blog %}
+      <input type="button" value="View"> <br><BR>
+    {% else %}
+    <h3>No View Permission</h3>
+    {% endif %}
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

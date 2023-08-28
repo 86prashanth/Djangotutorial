@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>models</title>
+    <style>
+        table,td,th,tr{
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    {% if student %} 
+    <table>
+        <tr>
+            <th>student id</th>
+            <th>student name</th>
+            <th>student email</th>
+            <th>student stupass</th>
+            <th>student Comment</th>
+        </tr>
+        {% for stu in student  %}
+        <tr>
+            <td>{{stu.stuid}}</td>
+            <td>{{stu.stuname}}</td>
+            <td>{{stu.stuemail}}</td>
+            <td>{{stu.stupass}}</td>
+            <td>{{stu.comment}}</td> <br>
+        </tr>
+        {% endfor %}
+    {% else %}
+    <h3>No data</h3>
+        {% endif %}
+    </table>
+</body>
+</html>
