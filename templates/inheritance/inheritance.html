@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model inheritance</title>
+    <style>
+        table,tr,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>Student data</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>age</th>
+            <th>Fees</th>
+        </tr>
+        <tr>
+            {% for  student in student_data %}
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.fees}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Teacher data</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>age</th>
+            <th>Fees</th>
+        </tr>
+        <tr>
+            {% for  student in teacher_data %}
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.salary}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Contractor data</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>age</th>
+            <th>date</th>
+            <th>payment</th>
+        </tr>
+        <tr>
+            {% for  student in contract_data %}
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.date}}</td>
+            <td>{{student.payment}}</td>
+        </tr>
+        {% endfor %}
+    </table> <br>
+    <h3>Examcenter data</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>cname</th>
+            <th>city</th>
+        </tr>
+        <tr>
+            {% for  student in examcenter %}
+            <td>{{student.id}}</td>
+            <td>{{student.cname}}</td>
+            <td>{{student.city}}</td>
+        </tr> 
+        {% endfor %} 
+    </table>
+    <hr>
+    <h3>my examcenter -proxy</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>cname</th>
+            <th>city</th>
+        </tr>
+        <tr>
+            {% for  student in myexamcenter %}
+            <td>{{student.id}}</td>
+            <td>{{student.cname}}</td>
+            <td>{{student.city}}</td>
+        </tr> 
+        {% endfor %} 
+    </table>
+    <h3>Student center</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>cname</th>
+            <th>city</th>
+            <th>name</th>
+            <th>roll</th>
+        </tr>
+        <tr>
+            {% for user in studentcenter  %}
+              <td>{{user.id}}</td>
+              <td>{{user.cname}}</td>
+              <td>{{user.city}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.roll}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+</body>
+</html>

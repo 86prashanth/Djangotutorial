@@ -1,0 +1,36 @@
+<style>
+    th,tr,table,td{
+        border:1px solid black;
+    }
+</style>
+<h1>Student details</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>roll</th>
+        <th>marks</th>
+        <th>city</th>
+        <th>pass_date</th>
+    </tr>
+    <tr>
+        {% for user in users  %}
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.roll}}</td>
+          <td>{{user.marks}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.pass_date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>average data {{average}}</h3>
+<h3>average data {{average.marks__avg}}</h3> <hr>
+<h3>sum data {{sum}}</h3>
+<h3>sum data {{sum.marks__sum}}</h3> <hr>
+<h3>minimum data {{min}}</h3>
+<h3>minimum data {{min.marks__min}}</h3> <hr>
+<h3>max data {{max}}</h3>
+<h3>maximum data {{max.marks__max}}</h3> <hr>
+<h3>count data {{count}}</h3>
+<h3>count data {{count.marks__count}}</h3> <hr>

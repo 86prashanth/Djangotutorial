@@ -1,0 +1,26 @@
+<style>
+    th,tr,table,td{
+        border:1px solid black;
+    }
+</style>
+<h1>Student details</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>roll</th>
+        <th>marks</th>
+        <th>city</th>
+        <th>pass_date</th>
+    </tr>
+    <tr>
+        {% for user in users  %}
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.roll}}</td>
+          <td>{{user.marks}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.pass_date}}</td>
+    </tr>
+    {% endfor %}
+</table>

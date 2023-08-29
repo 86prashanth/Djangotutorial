@@ -1,0 +1,92 @@
+<style>
+    table,tr,th,td{
+        border:1px solid black;
+    }
+</style>
+<h4>Student details</h4>
+{% if users %}
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>roll</th>
+        <th>city</th>
+        <th>marks</th>
+        <th>passing year</th>
+    </tr>
+    <tr>
+    {% for user in users %}
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.roll}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.marks}}</td>
+      <td>{{user.pass_date}}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h4>no users</h4>
+    {% endif %}
+</table>
+<h2>teacher details </h2>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>empnum</th>
+        <th>city</th>
+        <th>salary</th>
+        <th>join date</th>
+    </tr>
+    <tr>
+    {% for user in users2  %}
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.empnum}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.salary}}</td>
+      <td>{{user.join_date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>Union data</h3>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+    {% for d in data  %}
+      <td>{{d.id}}</td>
+      <td>{{d.name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h3>Intersection data</h3>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+    {% for d in data  %}
+      <td>{{d.id}}</td>
+      <td>{{d.name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</table>
+<h3>Difference data</h3>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    <tr>
+    {% for d in data  %}
+      <td>{{d.id}}</td>
+      <td>{{d.name}}</td>
+    </tr>
+    {% endfor %}
+</table>

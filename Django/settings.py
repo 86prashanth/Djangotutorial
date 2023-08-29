@@ -47,7 +47,11 @@ INSTALLED_APPS = [
     'crudapp',
     'messageframe',
     'usercreationform',
-    'pagecounter.apps.PagecounterConfig'
+    'pagecounter.apps.PagecounterConfig',
+    'querysetapi',
+    'model_inheritance',
+    'manager_app',
+    'model_relationship',
 ]
 
 MIDDLEWARE = [

@@ -44,6 +44,7 @@ urlpatterns = [
         path('user/',user_info,name='user'),
         path('under/',undercon,name='undercon'),
 
+
     ])),
     path('mul/',include([
         path('feedj/',fee_django,name='fee_django'),
@@ -55,6 +56,10 @@ urlpatterns = [
     path('crud/',include('crudapp.urls')),
     path('message/',include('messageframe.urls')),
     path('usercreationform/',include('usercreationform.urls')),
-    path('pagecount/',include('pagecounter.urls'))
+    path('pagecount/',include('pagecounter.urls')),
+    path('queryset/',include('querysetapi.urls')),
+    path('model_inher/',include('model_inheritance.urls')),
+    path('manager/',include('manager_app.urls')),
+    path('msrelation/',include('model_relationship.urls')),
         
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

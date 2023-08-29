@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model inheritance</title>
+    <style>
+        table,tr,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>Student data</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>roll</th>
+        </tr>
+        <tr>
+            {% for  student in users %}
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.roll}}</td>
+        </tr>
+        {% endfor %}
+    </table>
