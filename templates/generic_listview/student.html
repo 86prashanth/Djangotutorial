@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listview</title>
+    <style>
+        table,tr,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>Listview</h3>
+    <table>
+        <tr>
+            <th>id</th> 
+            <th>name</th> 
+            <th>roll</th>
+            <th>course</th> 
+        </tr>
+        <tr>
+            {% for student in student_list  %}
+              <td>{{student.id}}</td>
+              <td>{{student.name}}</td>
+              <td>{{student.roll}}</td>
+              <td>{{student.course}}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <hr>
+
+    {% for fresher in freshers %}
+    {{fresher.name}}
+    {{fresher.roll}}
+    {{fresher.course}}
+    {% endfor %}
+</body>
+</html>

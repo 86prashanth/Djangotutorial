@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h3>Profile page</h3>
+    <h5>welcome {{name}}</h5>
+   <a href="{% url 'logout' %}">logout</a>
+   <a href="{% url 'password_change' %}">Changepassword</a>
+   <a href="{% url 'password_reset' %}">PasswordReset</a>
+   <a href="{% url 'about' %}">about</a>
+</body>
+</html>

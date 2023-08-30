@@ -1,5 +1,4 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
-def one_to_one(request):
-    return render(request,'model_relationship/onetoone.html')
+def one_to_one(Request):
+    return HttpResponse("something...")

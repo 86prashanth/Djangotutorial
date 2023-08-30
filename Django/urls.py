@@ -19,10 +19,14 @@ from django.urls import path,include
 from django.conf import settings 
 from django.conf.urls.static import static 
 from multiapplication.views import *
+from Authentication_app.views import *
 from core.views import *
 from dynamicapp.urls import *
 from formapp.urls import *
 from crudapp.urls import *
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -61,5 +65,21 @@ urlpatterns = [
     path('model_inher/',include('model_inheritance.urls')),
     path('manager/',include('manager_app.urls')),
     path('msrelation/',include('model_relationship.urls')),
+    path('cbv/',include('class_based_view.urls')),
+    path('template/',include('TemplateView.urls')),
+    path('redirect/',include('Redirectview.urls')),
+    path('listview/',include('generic_listview.urls')),
+    path('detailview/',include('genericdetailview.urls')),
+    path('formview/',include('formview.urls')),
+    path('mixin/',include('modelformmixin.urls')),
+    path('accounts/',include('django.contrib.auth.urls')), # authentications
+    path('accounts/',include([
+        path('login/',auth_views.LoginView.as_view(template_name='registration/login.html'),name='login'),
+        path('profile/',profile,name='profile'),
+        path('about/',about,name='about'),
+        path('profileview/',login_required(ProfileTemplateView.as_view()),name='profileview'),
+        path('aboutview/',staff_member_required(AboutTemplateView.as_view()),name='aboutview'),
+        ])),
+    path('pagination/',include('pagination.urls')),
         
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

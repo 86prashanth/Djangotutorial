@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail view</title>
+</head>
+<body>
+    <h1>Student details page</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>roll</th>
+        <th>Course</th>
+    </tr>
+    <tr>
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.roll}}</td>
+        <td>{{student.course}}</td>
+    </tr>
+</table>
+<hr>
+{% for stu in all_student  %}
+    <li><a href="{% url 'detail' stu.id %}">{{stu.name}}</a></li> <br>
+{% endfor %}
+</body>
+</html>

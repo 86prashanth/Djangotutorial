@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagination</title>
+</head>
+<body>
+
+    <h3>Home page</h3>
+    {% for p in page_obj %}
+      <h1>{{p.title}}</h1>
+      <p>{{p.desc}}</p>
+     <b>publish_date:</b>{{p.publish_date}}<br>
+    {% endfor %}
+<div>
+    <span>
+        {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.previous_page_number}}">previous</a>
+        {% endif %}
+        <span>{{page_obj.number}}</span>
+        {% if page_obj.has_next %}
+          <a href="?page={{page_obj.next_page_number}}">Next</a>
+        {% endif %}
+    </span>
+
+</div>
+
+</body>
+</html>

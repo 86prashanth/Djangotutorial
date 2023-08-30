@@ -52,6 +52,14 @@ INSTALLED_APPS = [
     'model_inheritance',
     'manager_app',
     'model_relationship',
+    'class_based_view',
+    'TemplateView',
+    'Redirectview',
+    'generic_listview',
+    'genericdetailview',
+    'formview',
+    'modelformmixin',
+    'pagination',
 ]
 
 MIDDLEWARE = [
@@ -166,3 +174,5 @@ CACHES={
         'LOCATION':'pagecounter_cache',
     }
 }
+# LOGIN_REDIRECT_URL='/accounts/login/'
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
