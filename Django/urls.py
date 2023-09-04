@@ -22,11 +22,14 @@ from multiapplication.views import *
 from Authentication_app.views import *
 from core.views import *
 from dynamicapp.urls import *
+from Captchapp.views import *
 from formapp.urls import *
 from crudapp.urls import *
+from Otp_Verfication.urls import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -74,12 +77,21 @@ urlpatterns = [
     path('mixin/',include('modelformmixin.urls')),
     path('accounts/',include('django.contrib.auth.urls')), # authentications
     path('accounts/',include([
-        path('login/',auth_views.LoginView.as_view(template_name='registration/login.html'),name='login'),
+        path('dashboard/',Dashboard.as_view(template_name='customauth/dashboard.html'),name='profile'),
+        path('login/',LoginView.as_view(template_name='customauth/login.html'),name='login'),
+        path('logoutview/',LogoutView.as_view(template_name='customauth/logout.html'),name='logout'),
+        path('changepass/',PasswordChangeView.as_view(template_name='customauth/changepass.html'),name='changepass'),
+        path('changepassdone/',PasswordChangeDoneView.as_view(template_name='customauth/changepassdone.html'),name='password_change_done'),
+        # path('login/',auth_views.LoginView.as_view(template_name='registration/login.html'),name='login'),
         path('profile/',profile,name='profile'),
         path('about/',about,name='about'),
         path('profileview/',login_required(ProfileTemplateView.as_view()),name='profileview'),
         path('aboutview/',staff_member_required(AboutTemplateView.as_view()),name='aboutview'),
         ])),
-    path('pagination/',include('pagination.urls')),
-        
+    path('pagination/',include('pagination.urls')),      
+    path('captcha/',include('captcha.urls')),
+    path('captcha/',include([
+        path('captcha/',home,name='home'),
+    ])),
+    path('verification/',include('Otp_Verfication.urls')),
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

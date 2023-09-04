@@ -2,6 +2,8 @@ from django.shortcuts import render
 from pagination.models import Post
 from django.core.paginator import Paginator
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.http import Http404
 #Create your views here.
 def post(request):
     post=Post.objects.all()
@@ -17,5 +19,22 @@ def post(request):
     return render(request,'pagination/page.html',{'post':post,'page_obj':page_obj})
 
 
-
+# class based view 
+class PostListView(ListView):
+    model=Post
+    template_name='pagination/page_list.html'
+    ordering=['id']
+    paginate_by=3
+    paginate_orphans=1
     
+    def get_context_data(self,*args,**kwargs):
+        try:
+            return super(PostListView,self).get_context_data(*args,**kwargs)
+        except Http404:
+            self.kwargs['page']=1
+            return super(PostListView,self).get_context_data(*args,**kwargs)
+
+# detail view 
+class PostDetailView(DetailView):
+    model=Post 
+    template_name='pagination/page_detail.html'

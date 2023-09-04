@@ -10,7 +10,7 @@
     <h3>Home page</h3>
     {% for p in page_obj %}
       <h1>{{p.title}}</h1>
-      <p>{{p.desc}}</p>
+      <p>{{p.desc|truncatewords:30}}<a href="{% url 'detail' p.id %}">Read more</a></p>
      <b>publish_date:</b>{{p.publish_date}}<br>
     {% endfor %}
 <div>
@@ -23,7 +23,7 @@
           <a href="?page={{page_obj.next_page_number}}">Next</a>
         {% endif %}
     </span>
-
+<a href="{% url 'page' %}">Home</a>
 </div>
 
 </body>

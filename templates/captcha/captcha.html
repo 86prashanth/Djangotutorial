@@ -1,0 +1,42 @@
+{% extends 'captcha/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha form</title>
+    <style>
+        ul{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    <div class="container mt-5 p-5 border rounded" style="width:500px;">
+        {% if messages  %}
+          {% for msg in messages  %}
+            <div class="alert alert-success mb-3 text-center">{{msg}}</div>
+          {% endfor %}
+        {% endif %}
+        <h5 class="text-center">Student Form</h5>
+        <form action="" method='POST' novalidate>
+            {% csrf_token %}
+            {% for fm in form  %}
+                 {% if fm.errors %}
+                    <label class="text-danger">{{fm.errors}}</label>
+                    <br>
+                    {% endif %}
+                    <label>{{fm.label}}</label>
+                <span class="px-3">{{fm}}</span> <br><br>
+            {% endfor %}
+            <div class="mt-3 d-grid">
+            <input type="submit" class="btn btn-primary" value="submit">
+            </div>
+        </form>
+    </div>
+    
+    {% endblock content %}
+  
+</body>
+</html>

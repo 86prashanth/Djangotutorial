@@ -60,6 +60,11 @@ INSTALLED_APPS = [
     'formview',
     'modelformmixin',
     'pagination',
+    'Captchapp',
+    'captcha',
+    'rest_framework',
+    'Otp_Verfication',
+    # for this you have to install django rest framework
 ]
 
 MIDDLEWARE = [
@@ -174,5 +179,6 @@ CACHES={
         'LOCATION':'pagecounter_cache',
     }
 }
-# LOGIN_REDIRECT_URL='/accounts/login/'
+LOGIN_REDIRECT_URL='/accounts/dashboard/'
+
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
