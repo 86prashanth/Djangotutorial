@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <link rel="stylesheet" href="{% static 'css/product-style.css' %}">
+    
+</head>
+
+<body>
+    <div class="main-container">
+        {% for prod in products %}
+        <div class="card-container">
+            <img src={{prod.product_image}} alt="">
+            <div class="card-detail">
+                <div class="title">
+                    <p>{{prod.product_name}}</p>
+                </div>
+                <div class="description">
+                    <span class="text"> This is the product</span>
+                </div>
+                <div class="product-rating">
+                    <button class="star-rating">&#9734</button>
+                    <button class="star-rating">&#9734</button>
+                    <button class="star-rating">&#9734</button>
+                    <button class="star-rating">&#9734</button>
+                    <button class="star-rating">&#9734</button>
+                </div>
+            </div>
+            <a href="{% url 'product' prod.product_name %}"><button class="view-product">View</button></a>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+
+</html>

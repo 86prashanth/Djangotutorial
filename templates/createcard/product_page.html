@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="{% static 'css/product_page.css' %}">
+
+
+</head>
+
+<body>
+    <div class="product-container">
+        <img src={{product.product_image}} alt="">
+        <div class="product-detail">
+            <div class="product-title">
+                <h2>{{product.product_name}}</h2>
+            </div>
+            <div class="product-description">
+                <span> {{product.product_description}}</span>
+            </div>
+            <div class="add-items">
+                <p>Add Items</p>
+                <button id="minus">−</button>
+                <input type="text" value="1" id="input" />
+                <button id="plus">+</button>
+            </div>
+            <div class="price">
+                <p id="product-value">{{product.product_price}}$</p>
+                <button class="buy-product">Buy Now</button>
+            </div>
+
+
+            <div class="product-star-rating">
+
+                <button class="p-star-rating">&#9734</button>
+                <button class="p-star-rating">&#9734</button>
+                <button class="p-star-rating">&#9734</button>
+                <button class="p-star-rating">&#9734</button>
+                <button class="p-star-rating">&#9734</button>
+                <p id="current-rating">0 of 5</p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/product_page.js' %}"></script>
+</body>
+</html>

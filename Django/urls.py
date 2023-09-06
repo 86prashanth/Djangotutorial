@@ -25,10 +25,18 @@ from dynamicapp.urls import *
 from Captchapp.views import *
 from formapp.urls import *
 from crudapp.urls import *
-from Otp_Verfication.urls import *
+from Authentication_app.views import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth import views as auth_views
+
+from django.contrib.auth.views import (
+    LogoutView, 
+    PasswordResetView, 
+    PasswordResetDoneView, 
+    PasswordResetConfirmView,
+    PasswordResetCompleteView
+)
 
 
 urlpatterns = [
@@ -75,11 +83,19 @@ urlpatterns = [
     path('detailview/',include('genericdetailview.urls')),
     path('formview/',include('formview.urls')),
     path('mixin/',include('modelformmixin.urls')),
+    path('signup/',include('Authentication_app.urls')),
     path('accounts/',include('django.contrib.auth.urls')), # authentications
     path('accounts/',include([
+        path('register/',RegisterView.as_view(),name='register'),
+        path('logoutview/', LogoutView.as_view(next_page='login'),name='logout'),
+        path('login/',LoginView.as_view(template_name='auth/login.html'),name='login'),
+        path('password-reset/', PasswordResetView.as_view(template_name='auth/password_reset.html'),name='password-reset'),
+        path('password-reset/done/', PasswordResetDoneView.as_view(template_name='auth/password_reset_done.html'),name='password_reset_done'),
+        path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='auth/password_reset_confirm.html'),name='password_reset_confirm'),
+        path('password-reset-complete/',PasswordResetCompleteView.as_view(template_name='auth/password_reset_complete.html'),name='password_reset_complete'),
         path('dashboard/',Dashboard.as_view(template_name='customauth/dashboard.html'),name='profile'),
         path('login/',LoginView.as_view(template_name='customauth/login.html'),name='login'),
-        path('logoutview/',LogoutView.as_view(template_name='customauth/logout.html'),name='logout'),
+        # path('logoutview/',LogoutView.as_view(template_name='customauth/logout.html'),name='logout'),
         path('changepass/',PasswordChangeView.as_view(template_name='customauth/changepass.html'),name='changepass'),
         path('changepassdone/',PasswordChangeDoneView.as_view(template_name='customauth/changepassdone.html'),name='password_change_done'),
         # path('login/',auth_views.LoginView.as_view(template_name='registration/login.html'),name='login'),
@@ -93,5 +109,11 @@ urlpatterns = [
     path('captcha/',include([
         path('captcha/',home,name='home'),
     ])),
-    path('verification/',include('Otp_Verfication.urls')),
+    path('routeview/',include('routersViewsets.urls')),
+    path('payment/',include('payment_Gateway.urls')),
+    path('createcard/',include('createCardbutton.urls')),
+
+    
+    
+    
 ]+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

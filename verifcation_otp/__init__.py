@@ -1,0 +1,1 @@
+defualt_app_config='verifcation_otp.apps.VerifcationOtpConfig'

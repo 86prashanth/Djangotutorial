@@ -63,14 +63,28 @@ INSTALLED_APPS = [
     'Captchapp',
     'captcha',
     'rest_framework',
-    'Otp_Verfication',
+    'routersViewsets',
+    'payment_Gateway',
+    'createCardbutton',
+    
     # for this you have to install django rest framework
 ]
+# auth user
 
+
+# razor pay..
+RAZOR_KEY_ID='razor_pay key id'
+RAZOR_KEY_SECRET='razor_pay secret key'
+
+# twilio account
+TWILIO_ACCOUNT_SID = 'twilio account sid'
+TWILIO_AUTH_TOKEN = 'twilio auth token'
+TWILIO_PHONE_NUMBER = 'twilio account specify number'
+
+# middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware', # caches
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware', # caches
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -105,6 +119,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'Django.wsgi.application'
 # caches 
@@ -158,7 +173,7 @@ SESSION_FILE_PATH=os.path.join(BASE_DIR,'session')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[BASE_DIR/'static']
-
+MEDIA_URL='images/'
 APPEND_SLASH=False
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -179,6 +194,18 @@ CACHES={
         'LOCATION':'pagecounter_cache',
     }
 }
-LOGIN_REDIRECT_URL='/accounts/dashboard/'
 
-EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+# LOGIN_REDIRECT_URL='/accounts/dashboard/'
+
+# EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
+
+ # email settings 
+ 
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS=True 
+EMAIL_PORT=587
+EMAIL_HOST_USER='prashanthambala6@gmail.com'
+EMAIL_HOST_PASSWORD='xiogygmypxwgsvlx'
+

@@ -76,7 +76,7 @@ class MyTemplatemiddleware:
         return response
     def process_template_response(self,request,response):
         print("process template response from middleware..")
-        response.context_data['name']='sonam'
+        # response.context_data['name']='sonam'
         return response
         # return None
         # print("this is exception view...")
